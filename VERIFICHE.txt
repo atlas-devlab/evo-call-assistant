@@ -1,0 +1,40 @@
+EvoCall Assistant 0.1.0 - verification, 10 October 2026
+
+COMPLETED
+Environment: Windows, Python 3.13.5.
+Command: python -B -m unittest discover -s tests -v
+Result: 13 tests passed, no skips.
+
+The tests exercise:
+- Real HTTP exchange with a fake loopback server: model listing,
+  context and JSON schema request, and response validation.
+- Rejection of external/deceptive URLs and server redirects.
+- Conversation ordering, a 16-turn memory limit, and clear behavior.
+- Discarding stale suggestions after new turns, stop, or audio changes.
+- Ignoring audio events from a previous session.
+- Stopping queued audio and reporting a device failure once.
+- Simulated silent input: no transcription chunks, device released.
+- A clearly labeled fixed-rule demo and cautious listening hints.
+
+Tests do not acquire microphone audio, contact LM Studio or a cloud
+model, download dependencies/models, or open a graphical window.
+The silent-input test used the NumPy already available in the test
+environment. No packages were installed for this verification.
+
+NOT VERIFIED BY THIS RUN
+- The supplied launchers on their specified Python 3.12 runtime.
+- Visual layout and complete Tkinter interaction on Windows.
+- Installation of the optional audio dependencies in a clean environment.
+- Actual microphone and WASAPI loopback devices.
+- Real Whisper transcription and a loaded LM Studio model.
+- Full latency, recognition accuracy, Bluetooth compatibility, and RAM use.
+
+NEXT HARDWARE CHECKS
+1. Launch the demo and try a manually entered conversation turn.
+2. Connect to a local LM Studio model and measure a manual suggestion.
+3. Test selected devices in a short conversation with informed agreement.
+4. Verify STOP drops new turns and New conversation clears context.
+5. Measure latency before trying automatic suggestions.
+
+This is a source prototype, not a standalone executable or a finished
+real-time product. Test results do not establish hardware compatibility.

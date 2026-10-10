@@ -1,0 +1,105 @@
+EVOCALL 0.1 — Windows, conversazioni personali
+
+PRIMA PROVA
+1. Estrai completamente lo ZIP in una cartella sul PC Windows.
+2. Serve Python 3.12 a 64 bit con Tcl/Tk e Python Launcher.
+   Sito ufficiale: https://www.python.org/downloads/windows/
+3. Fai doppio clic su AVVIA.bat.
+4. Premi «Prova un esempio». La DEMO usa regole fisse, non un modello AI.
+5. Digita una battuta, scegli Tu / Altra persona, poi «Aiutami ora».
+
+SUGGERIMENTI AI REALI, IN LOCALE
+1. In LM Studio carica un modello chat/instruction e avvia il server
+   nella scheda Developer. La porta preimpostata nell'app è 1234.
+2. EvoCall > Impostazioni > Rileva modelli > scegli quello caricato.
+3. Se il server richiede autenticazione, inserisci il token di LM Studio.
+   Non serve una chiave di un servizio cloud.
+4. EvoCall > Conversazione > scegli LM Studio locale.
+5. Verifica prima i suggerimenti con testo digitato.
+
+Anche un piccolo modello può produrre frasi imprecise. Usa la proposta
+come spunto e verifica che rappresenti ciò che vuoi dire davvero.
+Non viene scelto né scaricato automaticamente un modello per LM Studio.
+
+AUDIO DELLA CHIAMATA — DA COLLAUDARE SUL TUO PC
+1. Chiudi l'app. Esegui INSTALLA_AUDIO.bat e poi PREPARA_VOCE.bat.
+   Richiedono Internet e scaricano componenti e modello voce.
+2. Riavvia AVVIA.bat. Usa LM Studio locale.
+3. Indossa cuffie e apri Impostazioni > Rileva dispositivi.
+4. Scegli l'uscita effettivamente usata dalla videochiamata e il microfono.
+5. Informa l'altra persona e ottieni il suo accordo. L'app non lo fa da sola.
+6. Seleziona la casella e premi Avvia audio locale.
+7. Prova prima una breve chiamata di collaudo con una persona disponibile.
+
+L'uscita scelta include ogni app che suona su quel dispositivo, non solo
+la videochiamata. Chiudi musica e altre fonti audio. Usa le cuffie per
+ridurre il rientro della voce dell'interlocutore nel tuo microfono.
+La compatibilità con cuffie Bluetooth e singole app va verificata.
+
+COSA MOSTRA
+- Una frase principale e una domanda alternativa.
+- Un'indicazione prudente sul momento: una pausa non prova la fine del turno.
+- Le ultime 16 battute, con etichette basate sui due canali audio.
+- Il tempo misurato di trascrizione e generazione, separatamente.
+
+COMANDI
+- Ctrl+Invio, quando EvoCall ha il focus: Aiutami ora.
+- Esc, quando EvoCall ha il focus: STOP audio.
+- Sempre in primo piano: mantiene visibile il pannello.
+  Non lo rende invisibile alla condivisione dello schermo.
+- Nuova conversazione: stop audio, rimozione delle battute, dei fatti
+  e dell'obiettivo personalizzato dalla memoria usata dall'app.
+- Suggerimenti automatici: opzionali e disattivati all'avvio.
+
+DATI
+EvoCall non crea file audio, trascrizioni, log delle conversazioni o file
+di configurazione con i tuoi dati. Le battute rimangono in RAM. La modalità
+LM Studio invia il testo solo al server sullo stesso PC. Audio e testo
+non sono inviati a un servizio cloud dal codice di EvoCall.
+LM Studio può conservare log propri: verifica le sue impostazioni.
+STOP scarta i nuovi risultati, ma mantiene le battute già mostrate.
+La pulizia dell'app non cancella log di terzi né garantisce cancellazione
+forense della memoria o del file di paging di Windows.
+
+STATO REALE
+È un prototipo sorgente, non un .exe autonomo o un prodotto finito.
+Le verifiche automatiche del nucleo sono in VERIFICHE.txt.
+Interfaccia nativa Windows, cattura WASAPI, modello reale e latenze
+non sono stati collaudati sull'hardware dell'utente in questa sessione.
+Non è garantito un suggerimento abbastanza rapido per ogni conversazione.
+
+SE QUALCOSA NON VA
+- Server non raggiungibile: avvia il server LM Studio e controlla la porta.
+- Risposta JSON non valida: prova un modello instruction compatibile con
+  output strutturato, già caricato nel server.
+- HTTP 401/403: inserisci il token del server LM Studio.
+- Nessun audio: controlla i dispositivi scelti e i permessi microfono
+  di Windows per le app desktop. Ferma e riavvia dopo un cambio cuffie.
+- Testo ripetuto: usa cuffie, elimina musica e riduci i rientri audio.
+- Audio troppo sensibile: ferma, alza la soglia rumore e riavvia.
+- Parole perse: ferma, abbassa la soglia e riavvia.
+- Ritardo: disattiva i suggerimenti automatici e prova prima testo manuale.
+- Caratteri strani nei comandi: esegui i .bat, non copiare il loro contenuto.
+
+DECISIONI TECNICHE
+GUI: Python/Tkinter, nessuna dipendenza per la demo.
+Audio: PyAudioWPatch/WASAPI, due canali separati.
+Voce: faster-whisper base multilingue, CPU int8; blocchi fino a 8 secondi.
+Risposte: endpoint locale LM Studio /v1/chat/completions con schema JSON.
+Rilevamento del momento: soglia di energia + pausa; resta sperimentale.
+Nessuna diarizzazione o analisi di emozioni/attrazione.
+Nessuna azione, invio messaggi, voce sintetica, avatar o traduzione live.
+
+FONTI TECNICHE CONSULTATE IL 9 OTTOBRE 2026
+https://github.com/s0d3s/PyAudioWPatch
+https://github.com/SYSTRAN/faster-whisper
+https://lmstudio.ai/docs/developer/openai-compat/structured-output
+https://lmstudio.ai/docs/developer/openai-compat
+https://pypi.org/project/PyAudioWPatch/0.2.12.9/
+https://pypi.org/project/faster-whisper/1.2.1/
+
+SVILUPPO
+Da questa cartella: python -m unittest discover -s tests -v
+I test usano un server finto locale e non richiedono LM Studio.
+Le dipendenze dirette sono fissate; quelle transitive non hanno un lockfile.
+Questo pacchetto non contiene modelli, registrazioni o dati personali.

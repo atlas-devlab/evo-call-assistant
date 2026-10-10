@@ -1,0 +1,6 @@
+# Direct dependencies pinned for the first Windows 3.12 prototype.
+# Transitive dependencies will be resolved by pip; this is not a full lockfile.
+PyAudioWPatch==0.2.12.9; sys_platform == "win32"
+faster-whisper==1.2.1
+numpy==2.2.6
+scipy==1.15.3

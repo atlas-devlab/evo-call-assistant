@@ -1,0 +1,8 @@
+EvoCall Assistant
+Copyright 2026 Atlas DevLab contributors.
+
+This repository's EvoCall source and documentation are licensed under the
+Apache License, Version 2.0. See LICENSE for the full text.
+
+Optional third-party Python packages, external model files, and LM Studio
+are not bundled here and remain subject to their respective licenses.
