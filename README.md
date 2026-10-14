@@ -1,8 +1,12 @@
 # EvoCall Assistant
 
+**License transition:** new original contributions default to AGPL-3.0-only.
+Earlier Apache-2.0 permissions and third-party licenses remain valid.
+Read the [license policy](LICENSE_POLICY.md) for the exact scope.
+
 A local conversation assistant for Windows. It offers a short reply, an alternative question, and a cautious listening cue. The current interface and suggestions are in Italian.
 
-**Open source · Apache-2.0 · Prototype 0.1.0**
+**Open source · New original contributions: AGPL-3.0-only · Apache legacy retained · Prototype 0.1.0**
 
 EvoCall combines a Python/Tkinter interface, an offline demonstration mode, and an optional connection to a model running in LM Studio on the same computer. Optional Windows audio capture feeds local Whisper transcription. This is an early source prototype; real audio devices, model performance, and the complete Windows interface still need hardware testing.
 
@@ -62,4 +66,4 @@ Contributions are welcome. Good first areas include Windows device testing, clea
 
 ## License
 
-Copyright 2026 Atlas DevLab contributors. EvoCall's source and documentation in this repository are licensed under the [Apache License 2.0](LICENSE). See [NOTICE](NOTICE) for attribution. External dependencies, models, and LM Studio retain their own licenses and are not bundled here.
+Copyright 2026 Atlas DevLab contributors. New original contributions default to [AGPL-3.0-only](LICENSE). The [license policy](LICENSE_POLICY.md) preserves earlier [Apache-2.0 permissions](LICENSES/Apache-2.0-legacy.txt) and defines the scope. See [NOTICE](NOTICE) for attribution. External dependencies, models, and LM Studio retain their own licenses and are not bundled here.

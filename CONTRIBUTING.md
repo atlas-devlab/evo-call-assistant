@@ -33,4 +33,14 @@ For a report that could expose conversation data or credentials, use GitHub's pr
 
 ## License
 
-Unless you explicitly state otherwise, contributions submitted for inclusion are under Apache-2.0, as described in [LICENSE](LICENSE). Do not submit code or assets that you cannot license compatibly. External libraries and models retain their own terms.
+New original contributions intentionally submitted for inclusion are offered under
+**AGPL-3.0-only** by default, as explained in [LICENSE_POLICY.md](LICENSE_POLICY.md).
+Contributors retain copyright. If a different applicable license is necessary,
+identify it explicitly for review before acceptance.
+
+Earlier Apache-2.0 grants remain valid. Preserve legacy and third-party notices;
+do not replace them with AGPL headers. Third-party material must have clear
+provenance, compatible terms, and its required notices. Submit only material
+you have authority to contribute. New original source files should carry
+SPDX-License-Identifier: AGPL-3.0-only. External models and libraries retain
+their own terms; do not add model weights.
